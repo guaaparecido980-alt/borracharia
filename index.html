@@ -35,8 +35,17 @@
 
 <link rel="canonical" href="https://borrachariachimarrao.com.br">
 
-<!-- Favicon via SVG inline (pneu estilizado) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230a0a0a' stroke='%23FFB800' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23FFB800'/%3E%3C/svg%3E">
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+
+<!-- Open Graph Image (logo principal) -->
+<meta property="og:image" content="https://guaaparecido980-alt.github.io/borracharia/logo-principal.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="700">
+<meta name="twitter:image" content="https://guaaparecido980-alt.github.io/borracharia/logo-principal.png">
 
 <!-- Fontes: Archivo Black (display industrial) + Inter (texto) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1558,8 +1567,7 @@ section { padding: 90px 20px; position: relative; }
 @media (max-width: 768px) {
   .header-phone { display: none; }
   .header-inner { padding: 12px 16px; }
-  .logo { font-size: 17px; }
-  .logo-badge { width: 38px; height: 38px; font-size: 18px; }
+  .logo img { height: 38px !important; max-width: 200px !important; }
 
   .hero { min-height: auto; padding: 50px 20px 60px; }
   .hero-ctas { flex-direction: column; }
@@ -1647,16 +1655,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <header class="header">
   <div class="header-inner">
     <a href="#hero" class="logo" aria-label="Borracharia Chimarrão - Início">
-      <div class="logo-badge" aria-hidden="true">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <circle cx="12" cy="12" r="4"/>
-        </svg>
-      </div>
-      <div class="logo-text">
-        Chimarrão
-        <small>Borracharia 24h</small>
-      </div>
+      <img src="logo-header.svg" alt="Borracharia Chimarrão 24h - BR-376 KM 640" height="50" width="220" style="height:50px;width:auto;max-width:260px;" loading="eager">
     </a>
     <a href="tel:+5541999480531" class="header-phone" aria-label="Ligar para 41 99948-0531">
       <span class="header-phone-icon" aria-hidden="true">📞</span>
@@ -2205,6 +2204,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
+      <img src="logo-principal.svg" alt="Logo Borracharia Chimarrão" width="180" height="210" style="width:180px;height:auto;margin-bottom:20px;" loading="lazy">
       <h3>Borracharia Chimarrão</h3>
       <p>
         Há 35 anos no mesmo lugar atendendo motoristas, caminhoneiros e empresas na BR-376 KM 640,
