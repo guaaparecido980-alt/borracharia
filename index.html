@@ -265,13 +265,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #fff;
   border-radius: 50%;
   margin-right: 6px;
-  animation: pulsar 5s ease-in-out infinite;
+  animation: pulsar 2s ease-in-out infinite;
   vertical-align: middle;
-  will-change: opacity;
+  will-change: opacity, transform;
+  transform: translateZ(0);
 }
 @keyframes pulsar {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% { opacity: 1; transform: scale(1) translateZ(0); }
+  50% { opacity: 0.25; transform: scale(0.85) translateZ(0); }
 }
 
 /* ============================================
@@ -414,12 +415,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 8px; height: 8px;
   background: var(--ambar);
   border-radius: 50%;
-  animation: pulsar-ambar 5s ease-in-out infinite;
-  will-change: opacity;
+  animation: pulsar-ambar 2s ease-in-out infinite;
+  will-change: opacity, transform;
+  transform: translateZ(0);
 }
 @keyframes pulsar-ambar {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+  0%, 100% { opacity: 1; transform: scale(1) translateZ(0); }
+  50% { opacity: 0.3; transform: scale(0.85) translateZ(0); }
 }
 .hero h1 {
   font-family: var(--fonte-display);
@@ -1071,8 +1073,9 @@ section { padding: 90px 20px; position: relative; }
   width: 6px; height: 6px;
   background: var(--vermelho);
   border-radius: 50%;
-  animation: pulsar 5s ease-in-out infinite;
-  will-change: opacity;
+  animation: pulsar 2s ease-in-out infinite;
+  will-change: opacity, transform;
+  transform: translateZ(0);
 }
 .situation-card h3 {
   font-family: var(--fonte-display);
@@ -2055,13 +2058,15 @@ section { padding: 90px 20px; position: relative; }
 }
 
 /* iOS / iPhone optimization - prevent ProMotion 120Hz flicker */
+/* iOS / iPhone - garantir GPU acceleration mas manter mesma duração */
 @supports (-webkit-touch-callout: none) {
   .emergency-bar .pulse,
   .hero-flag .dot,
   .situation-time .dot-red {
-    animation-duration: 8s !important;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 a:focus-visible, button:focus-visible, summary:focus-visible {
