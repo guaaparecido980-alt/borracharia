@@ -34,6 +34,7 @@
 <meta name="twitter:description" content="Ponto de parada na BR-376. Atendimento 24h direto no local. 35 anos no mesmo lugar.">
 
 <link rel="canonical" href="https://borrachariachimarrao.com.br">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -1673,12 +1674,22 @@ section { padding: 90px 20px; position: relative; }
   border-top: 1px solid var(--cinza-borda);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 12px 20px;
   font-size: 12px;
   color: #777;
 }
-.footer-bottom a { color: var(--ambar); }
+.footer-bottom a {
+  color: var(--ambar);
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--ambar-brilho); text-decoration: underline; }
+.footer-legal-links {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
 
 /* ============================================
    FLUTUANTES
@@ -1941,8 +1952,97 @@ section { padding: 90px 20px; position: relative; }
 }
 
 /* ============================================
-   ACESSIBILIDADE
+   BANNER DE COOKIES (LGPD)
 ============================================ */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10,10,10,.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 2px solid var(--ambar);
+  padding: 24px 20px;
+  z-index: 9998;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 -10px 40px rgba(0,0,0,.5);
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  min-width: 260px;
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cookie-banner-text strong {
+  color: var(--ambar);
+  font-weight: 800;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+.cookie-banner-text a {
+  color: var(--ambar);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.cookie-banner-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cookie-btn {
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  min-height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.cookie-btn-accept {
+  background: var(--ambar);
+  color: var(--preto);
+  box-shadow: 0 4px 12px rgba(255,184,0,.3);
+}
+.cookie-btn-accept:hover {
+  background: var(--ambar-brilho);
+  transform: translateY(-1px);
+}
+.cookie-btn-reject {
+  background: transparent;
+  color: #b0b0b0;
+  border: 1px solid var(--cinza-borda);
+}
+.cookie-btn-reject:hover {
+  color: #fff;
+  border-color: #fff;
+}
+@media (max-width: 600px) {
+  .cookie-banner { padding: 20px 16px 90px; }
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 16px; }
+  .cookie-banner-ctas { width: 100%; }
+  .cookie-btn { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner { transition: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -2632,6 +2732,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
   <div class="footer-bottom">
     <span>&copy; <span id="ano"></span> Borracharia Chimarrão — Todos os direitos reservados.</span>
+    <span class="footer-legal-links">
+      <a href="privacidade.html">Política de Privacidade</a>
+      <span aria-hidden="true"> · </span>
+      <a href="termos.html">Termos de Uso</a>
+    </span>
     <span>Atendimento <strong style="color:var(--ambar)">24 horas</strong> · 35 anos de estrada</span>
   </div>
 </footer>
@@ -2654,6 +2759,21 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     WhatsApp
   </a>
 </nav>
+
+<!-- BANNER DE COOKIES (LGPD) -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <div class="cookie-banner-inner">
+    <div class="cookie-banner-text">
+      <strong>🍪 Este site usa cookies</strong>
+      Usamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo.
+      Ao continuar navegando, você concorda com nossa <a href="privacidade.html">Política de Privacidade</a>.
+    </div>
+    <div class="cookie-banner-ctas">
+      <button class="cookie-btn cookie-btn-reject" id="cookieReject" type="button">Recusar</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept" type="button">Aceitar e continuar</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // Ano dinâmico
@@ -2718,6 +2838,57 @@ mobileNav.querySelectorAll('a').forEach(a => {
 mobileNav.addEventListener('click', function(e) {
   if (e.target === mobileNav) closeMenu();
 });
+
+// ============================================
+// COOKIE BANNER (LGPD)
+// ============================================
+(function() {
+  const COOKIE_KEY = 'chimarrao_cookie_consent';
+  const banner = document.getElementById('cookieBanner');
+  const accept = document.getElementById('cookieAccept');
+  const reject = document.getElementById('cookieReject');
+
+  // Verifica se já existe consentimento salvo
+  const consent = localStorage.getItem(COOKIE_KEY);
+
+  function showBanner() {
+    // Aguarda 1s antes de mostrar para não atrapalhar o primeiro carregamento
+    setTimeout(() => banner.classList.add('show'), 1000);
+  }
+
+  function hideBanner() {
+    banner.classList.remove('show');
+  }
+
+  function saveConsent(value) {
+    try {
+      localStorage.setItem(COOKIE_KEY, JSON.stringify({
+        status: value,
+        timestamp: new Date().toISOString(),
+        version: '1.0'
+      }));
+    } catch(e) { /* localStorage indisponível - fallback silencioso */ }
+  }
+
+  if (!consent) {
+    showBanner();
+  }
+
+  accept.addEventListener('click', function() {
+    saveConsent('accepted');
+    hideBanner();
+    // Aqui você pode disparar GTM, Facebook Pixel, GA4, etc.
+    if (typeof window.gtag === 'function') window.gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
+    document.dispatchEvent(new CustomEvent('cookieConsent', { detail: 'accepted' }));
+  });
+
+  reject.addEventListener('click', function() {
+    saveConsent('rejected');
+    hideBanner();
+    if (typeof window.gtag === 'function') window.gtag('consent', 'update', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+    document.dispatchEvent(new CustomEvent('cookieConsent', { detail: 'rejected' }));
+  });
+})();
 </script>
 
 </body>
