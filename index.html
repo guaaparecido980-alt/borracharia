@@ -264,12 +264,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #fff;
   border-radius: 50%;
   margin-right: 6px;
-  animation: pulsar 3s ease-in-out infinite;
+  animation: pulsar 5s ease-in-out infinite;
   vertical-align: middle;
+  will-change: opacity;
 }
 @keyframes pulsar {
-  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,.6); }
-  50% { opacity: 0.4; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(255,255,255,0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* ============================================
@@ -412,11 +413,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 8px; height: 8px;
   background: var(--ambar);
   border-radius: 50%;
-  animation: pulsar-ambar 3s ease-in-out infinite;
+  animation: pulsar-ambar 5s ease-in-out infinite;
+  will-change: opacity;
 }
 @keyframes pulsar-ambar {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,.6); }
-  50% { box-shadow: 0 0 0 8px rgba(255,184,0,0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 .hero h1 {
   font-family: var(--fonte-display);
@@ -512,7 +514,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 16px 32px !important;
   min-height: 72px !important;
   box-shadow: 0 0 0 0 rgba(255,184,0,.7), 0 10px 30px rgba(255,184,0,.5) !important;
-  animation: call-pulse 2.5s ease-in-out infinite;
+  animation: call-pulse 3.5s ease-in-out infinite;
   position: relative;
   overflow: visible;
 }
@@ -536,8 +538,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-transform: uppercase;
 }
 @keyframes call-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,.6), 0 10px 30px rgba(255,184,0,.5); }
-  50% { box-shadow: 0 0 0 14px rgba(255,184,0,0), 0 10px 30px rgba(255,184,0,.6); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,.5), 0 10px 30px rgba(255,184,0,.4); }
+  50% { box-shadow: 0 0 0 10px rgba(255,184,0,0), 0 10px 30px rgba(255,184,0,.5); }
 }
 .btn svg { flex-shrink: 0; }
 
@@ -1068,7 +1070,8 @@ section { padding: 90px 20px; position: relative; }
   width: 6px; height: 6px;
   background: var(--vermelho);
   border-radius: 50%;
-  animation: pulsar 3s ease-in-out infinite;
+  animation: pulsar 5s ease-in-out infinite;
+  will-change: opacity;
 }
 .situation-card h3 {
   font-family: var(--fonte-display);
@@ -1593,7 +1596,7 @@ section { padding: 90px 20px; position: relative; }
   min-height: 76px !important;
   font-weight: 900 !important;
   letter-spacing: 1px !important;
-  animation: call-pulse 2.5s ease-in-out infinite;
+  animation: call-pulse 3.5s ease-in-out infinite;
 }
 .cta-final-phone {
   margin-top: 24px;
@@ -1943,7 +1946,22 @@ section { padding: 90px 20px; position: relative; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .emergency-bar .pulse,
+  .hero-flag .dot,
+  .situation-time .dot-red { animation: none !important; opacity: 1 !important; }
+}
+
+/* iOS / iPhone optimization - prevent ProMotion 120Hz flicker */
+@supports (-webkit-touch-callout: none) {
+  .emergency-bar .pulse,
+  .hero-flag .dot,
+  .situation-time .dot-red {
+    animation-duration: 8s !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 a:focus-visible, button:focus-visible, summary:focus-visible {
