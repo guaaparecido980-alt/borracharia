@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://borrachariachimarrao.com.br/</loc>
+<lastmod>2026-04-24</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://borrachariachimarrao.com.br/logo-principal.png</image:loc>
+<image:title>Borracharia Chimarrão 24h BR-376 KM 640</image:title>
+</image:image>
+<image:image>
+<image:loc>https://borrachariachimarrao.com.br/og-image.png</image:loc>
+<image:title>Borracharia 24h BR-376 Pneus Caminhão Carro Moto</image:title>
+</image:image>
+<image:image>
+<image:loc>https://borrachariachimarrao.com.br/logo-header.png</image:loc>
+<image:title>Logo Borracharia Chimarrão</image:title>
+</image:image>
+</url>
+<url>
+<loc>https://borrachariachimarrao.com.br/privacidade.html</loc>
+<lastmod>2026-04-24</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://borrachariachimarrao.com.br/termos.html</loc>
+<lastmod>2026-04-24</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+</urlset>
