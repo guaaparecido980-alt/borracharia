@@ -264,12 +264,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #fff;
   border-radius: 50%;
   margin-right: 6px;
-  animation: pulsar 1.4s infinite;
+  animation: pulsar 3s ease-in-out infinite;
   vertical-align: middle;
 }
 @keyframes pulsar {
-  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,.8); }
-  50% { opacity: 0.5; transform: scale(1.2); box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,.6); }
+  50% { opacity: 0.4; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(255,255,255,0); }
 }
 
 /* ============================================
@@ -298,33 +298,35 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 12px;
+  line-height: 1;
+}
+.logo-img {
+  height: 52px;
+  width: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.logo-name {
   font-family: var(--fonte-display);
-  font-size: 20px;
+  font-size: 22px;
   color: var(--branco);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
 }
-.logo-badge {
-  width: 44px; height: 44px;
-  background: var(--ambar);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--preto);
-  font-size: 22px;
-  box-shadow: 0 0 0 3px rgba(255,184,0,.2);
-  flex-shrink: 0;
-}
-.logo-text small {
-  display: block;
+.logo-sub {
   font-family: var(--fonte-texto);
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--ambar);
+  text-transform: uppercase;
   letter-spacing: 2px;
-  margin-top: 2px;
+  line-height: 1;
 }
 .header-phone {
   display: flex;
@@ -963,7 +965,7 @@ section { padding: 90px 20px; position: relative; }
   width: 6px; height: 6px;
   background: var(--vermelho);
   border-radius: 50%;
-  animation: pulsar 1.4s infinite;
+  animation: pulsar 3s ease-in-out infinite;
 }
 .situation-card h3 {
   font-family: var(--fonte-display);
@@ -1674,8 +1676,10 @@ section { padding: 90px 20px; position: relative; }
 @media (max-width: 768px) {
   .header-phone { display: none; }
   .hamburger { display: flex; }
-  .header-inner { padding: 12px 16px; }
-  .logo img { height: 38px !important; max-width: 200px !important; }
+  .header-inner { padding: 10px 16px; }
+  .logo-img { height: 44px !important; }
+  .logo-name { font-size: 18px; }
+  .logo-sub { font-size: 9px; letter-spacing: 1.5px; }
 
   .hero { min-height: auto; padding: 50px 20px 60px; }
   .hero-ctas { flex-direction: column; }
@@ -1764,7 +1768,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <header class="header">
   <div class="header-inner">
     <a href="#hero" class="logo" aria-label="Borracharia Chimarrão - Início">
-      <img src="logo-header.png" alt="Borracharia Chimarrão 24h - BR-376 KM 640" height="52" width="83" style="height:52px;width:auto;" loading="eager">
+      <img src="logo-header.png" alt="Logo Borracharia Chimarrão" class="logo-img" loading="eager">
+      <div class="logo-text-wrap">
+        <span class="logo-name">Chimarrão</span>
+        <span class="logo-sub">Borracharia 24h</span>
+      </div>
     </a>
     <a href="tel:+5541999480531" class="header-phone" aria-label="Ligar para 41 99948-0531">
       <span class="header-phone-icon" aria-hidden="true">📞</span>
