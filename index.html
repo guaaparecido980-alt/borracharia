@@ -1493,26 +1493,13 @@ section { padding: 90px 20px; position: relative; }
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(37,211,102,.4);
+  box-shadow: 0 4px 16px rgba(37,211,102,.4);
   z-index: 99;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .float-whats:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(37,211,102,.6);
-}
-.float-whats::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid rgba(37,211,102,.3);
-  animation: float-pulse 2s ease-out infinite;
-  pointer-events: none;
-}
-@keyframes float-pulse {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
+  box-shadow: 0 8px 24px rgba(37,211,102,.6);
 }
 
 .mobile-bar {
@@ -1570,13 +1557,12 @@ section { padding: 90px 20px; position: relative; }
   border: 1px solid var(--cinza-borda);
   border-radius: var(--radius);
   cursor: pointer;
-  z-index: 200;
   gap: 5px;
   padding: 10px 8px;
   transition: all 0.2s;
   flex-shrink: 0;
 }
-.hamburger:hover { border-color: var(--ambar); }
+.hamburger:hover, .hamburger:active { border-color: var(--ambar); }
 .hamburger span {
   display: block;
   width: 22px;
@@ -1585,33 +1571,54 @@ section { padding: 90px 20px; position: relative; }
   border-radius: 2px;
   transition: all 0.3s;
 }
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-.hamburger.active { border-color: var(--ambar); }
 
 .mobile-nav {
-  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(10,10,10,.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 150;
+  z-index: 9999;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 80px 30px 120px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 8px;
+  padding: 80px 30px 100px;
   overflow-y: auto;
+  display: none;
 }
-.mobile-nav.open { display: flex; opacity: 1; }
+.mobile-nav.open { display: flex; }
+
+/* Botão X para fechar o menu */
+.mobile-nav-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: 2px solid var(--cinza-borda);
+  border-radius: var(--radius);
+  color: var(--branco);
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10000;
+  line-height: 1;
+}
+.mobile-nav-close:hover, .mobile-nav-close:active {
+  border-color: var(--ambar);
+  color: var(--ambar);
+  transform: rotate(90deg);
+}
+
 .mobile-nav a {
   font-family: var(--fonte-display);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--branco);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1624,11 +1631,13 @@ section { padding: 90px 20px; position: relative; }
 }
 .mobile-nav a:hover, .mobile-nav a:active { color: var(--ambar); border-color: var(--ambar); }
 .mobile-nav .nav-phone {
-  margin-top: 20px;
+  margin-top: 16px;
   font-family: var(--fonte-display);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--ambar);
   letter-spacing: 1px;
+  border-bottom: none;
+}
 }
 .mobile-nav .nav-ctas {
   display: flex;
@@ -1761,14 +1770,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <span class="header-phone-icon" aria-hidden="true">📞</span>
       (41) 99948-0531
     </a>
-    <button class="hamburger" aria-label="Abrir menu" onclick="document.querySelector('.mobile-nav').classList.toggle('open');this.classList.toggle('active');">
+    <button class="hamburger" aria-label="Abrir menu" id="menuBtn">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- NAV MOBILE (overlay fullscreen) -->
-<nav class="mobile-nav" aria-label="Menu principal" onclick="if(event.target.tagName==='A'){this.classList.remove('open');document.querySelector('.hamburger').classList.remove('active');}">
+<!-- NAV MOBILE (overlay fullscreen com botão X) -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu principal">
+  <button class="mobile-nav-close" id="menuClose" aria-label="Fechar menu">&times;</button>
   <a href="#servicos">Serviços</a>
   <a href="#localizacao">Localização</a>
   <a href="#situacoes">Situações Reais</a>
@@ -2426,6 +2436,27 @@ function trackConversion(type) {
 }
 document.querySelectorAll('a[href^="https://wa.me"]').forEach(a => a.addEventListener('click', () => trackConversion('whatsapp')));
 document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener('click', () => trackConversion('phone_call')));
+
+// Menu hamburger
+const menuBtn = document.getElementById('menuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileNav = document.getElementById('mobileNav');
+
+function openMenu() { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
+
+menuBtn.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+
+// Fechar ao clicar em qualquer link do menu
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', closeMenu);
+});
+
+// Fechar ao clicar fora (no backdrop)
+mobileNav.addEventListener('click', function(e) {
+  if (e.target === mobileNav) closeMenu();
+});
 </script>
 
 </body>
