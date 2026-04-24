@@ -1,0 +1,29 @@
+# robots.txt para Borracharia Chimarrão
+# BR-376 KM 640 - Miringuava - São José dos Pinhais - PR
+# https://borrachariachimarrao.com.br
+
+# Permitir acesso a todos os robôs
+User-agent: *
+Allow: /
+
+# Bloquear crawlers abusivos de IA que não agregam valor
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
+Sitemap: https://borrachariachimarrao.com.br/sitemap.xml
