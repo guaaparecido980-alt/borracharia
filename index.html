@@ -508,19 +508,69 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 /* Botão LIGAR - ênfase máxima no hero */
 .btn-primary {
-  font-size: 20px !important;
-  padding: 22px 32px !important;
-  min-height: 68px !important;
+  font-size: 18px !important;
+  padding: 16px 32px !important;
+  min-height: 72px !important;
   box-shadow: 0 0 0 0 rgba(255,184,0,.7), 0 10px 30px rgba(255,184,0,.5) !important;
   animation: call-pulse 2.5s ease-in-out infinite;
   position: relative;
   overflow: visible;
+}
+.btn-primary .btn-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1;
+}
+.btn-primary .btn-main {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.btn-primary .btn-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.8;
+  text-transform: uppercase;
 }
 @keyframes call-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,.6), 0 10px 30px rgba(255,184,0,.5); }
   50% { box-shadow: 0 0 0 14px rgba(255,184,0,0), 0 10px 30px rgba(255,184,0,.6); }
 }
 .btn svg { flex-shrink: 0; }
+
+/* Hero tagline - SEM ESPERA SEM ENROLACAO DIRETO NO LOCAL */
+.hero-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  font-family: var(--fonte-display);
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: var(--ambar);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInUp 0.7s ease 0.25s both;
+}
+.hero-tagline .dot-sep {
+  color: var(--vermelho);
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+/* Microcopy abaixo do botão */
+.hero-microcopy {
+  margin-top: 12px;
+  margin-bottom: 28px;
+  font-size: 13px;
+  color: var(--cinza-texto);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  animation: fadeInUp 0.7s ease 0.45s both;
+}
 
 .hero-phone-big {
   margin-bottom: 32px;
@@ -1058,6 +1108,72 @@ section { padding: 90px 20px; position: relative; }
 .situation-card:hover .action::after { transform: translateX(4px); }
 
 /* ============================================
+   AVISO IMPORTANTE (warning box)
+============================================ */
+.warning-section {
+  padding: 40px 20px 60px;
+  background: var(--preto);
+}
+.warning-box {
+  max-width: 760px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(230,57,70,.08) 0%, rgba(230,57,70,.02) 100%);
+  border: 2px solid rgba(230,57,70,.4);
+  border-left: 6px solid var(--vermelho);
+  border-radius: var(--radius);
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(230,57,70,.1);
+}
+.warning-title {
+  display: inline-block;
+  font-family: var(--fonte-display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--vermelho);
+  letter-spacing: 3px;
+  margin-bottom: 28px;
+  text-shadow: 0 0 20px rgba(230,57,70,.3);
+}
+.warning-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: left;
+}
+.warning-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  font-size: clamp(0.95rem, 1.7vw, 1.1rem);
+  color: #e8e8e8;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(230,57,70,.15);
+}
+.warning-list li:last-child { border-bottom: none; }
+.warning-list .w-ico {
+  font-size: 1.3em;
+  flex-shrink: 0;
+}
+.warning-list .w-ico-ok {
+  font-size: 1.4em;
+  flex-shrink: 0;
+}
+.warning-list .w-highlight {
+  background: rgba(255,184,0,.08);
+  border: 1px solid rgba(255,184,0,.3);
+  border-radius: var(--radius);
+  padding: 16px 18px !important;
+  margin-top: 12px;
+  color: var(--ambar) !important;
+}
+.warning-list .w-highlight strong {
+  color: var(--ambar);
+}
+
+/* ============================================
    AUTORIDADE 35 ANOS
 ============================================ */
 .authority-section {
@@ -1461,6 +1577,31 @@ section { padding: 90px 20px; position: relative; }
 .cta-final .btn-whats:hover {
   background: #1a1a1a;
   color: var(--verde-whats-hover);
+}
+.cta-final-choice {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px !important;
+  color: var(--preto);
+}
+.btn-cta-big {
+  font-size: 22px !important;
+  padding: 24px 44px !important;
+  min-height: 76px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  animation: call-pulse 2.5s ease-in-out infinite;
+}
+.cta-final-phone {
+  margin-top: 24px;
+  font-family: var(--fonte-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--preto);
+  letter-spacing: 1px;
+  font-weight: 900;
 }
 
 /* ============================================
@@ -1870,23 +2011,30 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     </div>
 
     <h1>
-      Quebrou na <span class="highlight">BR-376?</span><br>
-      Parou aqui, resolve na hora.
+      Parou na <span class="highlight">BR-376?</span><br>
+      Não fica parado.
     </h1>
 
     <p class="hero-sub">
-      Borracharia 24h no <strong>KM 640</strong>. Caminhão, carro, moto e trator.
-      Chegou, trocou, seguiu viagem.
+      <strong>Encosta aqui e resolve em minutos.</strong><br>
+      Borracharia 24h no KM 640. Caminhão, carro, moto e trator.
     </p>
+
+    <div class="hero-tagline">
+      <span>SEM ESPERA</span> <span class="dot-sep">•</span> <span>SEM ENROLAÇÃO</span> <span class="dot-sep">•</span> <span>DIRETO NO LOCAL</span>
+    </div>
 
     <div class="hero-urgent">⚡ Atendimento imediato — sem agendar</div>
 
     <div class="hero-ctas">
-      <a href="tel:+5541999480531" class="btn btn-call btn-primary" aria-label="Ligar agora">
+      <a href="tel:+5541999480531" class="btn btn-call btn-primary" aria-label="Ligar agora - atendimento imediato">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        Ligar Agora
+        <span class="btn-stack">
+          <span class="btn-main">Ligar Agora</span>
+          <span class="btn-tag">Atendimento Imediato</span>
+        </span>
       </a>
       <a href="https://wa.me/5541999480531?text=Ol%C3%A1!%20Estou%20indo%20pra%20Borracharia%20Chimarr%C3%A3o%20BR-376%20KM%20640." class="btn btn-whats" aria-label="Chamar no WhatsApp" rel="noopener">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1895,6 +2043,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         WhatsApp
       </a>
     </div>
+
+    <p class="hero-microcopy">👆 Toque e fale direto agora</p>
 
     <div class="hero-phone-big">
       <span>Telefone direto · 24h</span>
@@ -1928,31 +2078,37 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   </div>
 </div>
 
-<!-- PARADA ESTRATÉGICA -->
+<!-- É ASSIM QUE FUNCIONA NA PRÁTICA -->
 <section class="proof-section" id="prova">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Por que aqui</span>
-      <h2 class="section-title">Parada estratégica na <span class="highlight">BR-376</span></h2>
-      <p class="section-desc">Localização privilegiada, fácil acesso pela rodovia e estrutura pronta pra caminhão. Por isso caminhoneiro conhece a Chimarrão de longe.</p>
+      <span class="section-eyebrow">Prova real</span>
+      <h2 class="section-title">É assim que funciona <span class="highlight">na prática</span></h2>
+      <p class="section-desc"><strong>Sem promessa. É aqui, na beira da rodovia.</strong></p>
     </div>
 
     <div class="proof-grid">
       <div class="proof-card reveal">
-        <div class="proof-img img-1" aria-label="Localização privilegiada">
+        <div class="proof-img img-1" aria-label="Borracharia Chimarrão - foto real">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
+            <path d="M3 21h18"/>
+            <path d="M5 21V7l8-4v18"/>
+            <path d="M19 21V11l-6-4"/>
+            <rect x="9" y="9" width="2" height="2"/>
+            <rect x="9" y="13" width="2" height="2"/>
+            <rect x="9" y="17" width="2" height="2"/>
+            <rect x="15" y="13" width="2" height="2"/>
+            <rect x="15" y="17" width="2" height="2"/>
           </svg>
         </div>
         <div class="proof-label">
-          <small>Localização</small>
-          BR-376 · KM 640 · Miringuava
+          <small>A borracharia</small>
+          Ponto físico na BR-376 KM 640
         </div>
       </div>
 
       <div class="proof-card reveal">
-        <div class="proof-img img-2" aria-label="Estrutura para caminhão">
+        <div class="proof-img img-2" aria-label="Caminhão sendo atendido no pátio">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="6" width="15" height="10" rx="1"/>
             <polygon points="16 10 20 10 23 13 23 16 16 16"/>
@@ -1961,21 +2117,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           </svg>
         </div>
         <div class="proof-label">
-          <small>Estrutura</small>
-          Pátio amplo pra caminhão entrar
+          <small>Caminhão atendido</small>
+          Entra, resolve, volta pra estrada
         </div>
       </div>
 
       <div class="proof-card reveal">
-        <div class="proof-img img-3" aria-label="Atendimento rápido">
+        <div class="proof-img img-3" aria-label="Estrutura pronta pra caminhão">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
           </svg>
         </div>
         <div class="proof-label">
-          <small>Rapidez</small>
-          Chegou, trocou, seguiu viagem
+          <small>Estrutura real</small>
+          Pátio amplo, equipe, equipamento
         </div>
       </div>
     </div>
@@ -1989,8 +2144,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <div class="container">
     <div class="section-header reveal">
       <span class="section-eyebrow">Onde estamos</span>
-      <h2 class="section-title">Ponto fixo na <span class="highlight">BR-376</span></h2>
-      <p class="section-desc">Acesso direto pela rodovia. Entrada larga pra caminhão. Impossível errar.</p>
+      <h2 class="section-title">Joga no GPS <span class="highlight">e encosta aqui</span></h2>
+      <p class="section-desc"><strong style="color:var(--ambar);font-size:1.15em;">KM 640 — Não tem erro.</strong></p>
     </div>
 
     <div class="map-wrapper">
@@ -2126,39 +2281,59 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <section class="situations-section" id="situacoes">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-eyebrow">É assim que chega aqui</span>
-      <h2 class="section-title">Se essa é a <span class="highlight">sua situação</span></h2>
-      <p class="section-desc">Para na BR-376 KM 640 agora mesmo. A gente resolve rápido e você segue viagem.</p>
+      <span class="section-eyebrow">É contigo?</span>
+      <h2 class="section-title">Pra <span class="highlight">quem não pode esperar</span></h2>
+      <p class="section-desc">Se você tá em uma dessas, <strong>liga agora ou encosta aqui.</strong></p>
     </div>
 
     <div class="situations-grid">
       <div class="situation-card reveal">
+        <span class="situation-time"><span class="dot-red"></span> Pneu</span>
+        <h3>Furou pneu?</h3>
+        <p>Carro, moto ou caminhão. Liga agora que a gente já prepara. Encosta aqui e resolve na hora.</p>
+        <a href="tel:+5541999480531" class="action">Ligar Agora ou Encostar Aqui</a>
+      </div>
+
+      <div class="situation-card reveal">
         <span class="situation-time"><span class="dot-red"></span> Caminhão</span>
-        <h3>"Furou pneu do caminhão"</h3>
-        <p>Carreta carregada, tempo é dinheiro. Entra no pátio, a gente resolve e você volta pra rodovia.</p>
-        <a href="tel:+5541999480531" class="action">Ligar Agora</a>
+        <h3>Parou caminhão?</h3>
+        <p>Pátio amplo pra carreta entrar. Equipamento certo pra pneu grande. Chega que o cara atende rápido.</p>
+        <a href="tel:+5541999480531" class="action">Ligar Agora ou Encostar Aqui</a>
+      </div>
+
+      <div class="situation-card reveal">
+        <span class="situation-time"><span class="dot-red"></span> Urgente</span>
+        <h3>Tá carregado e não pode atrasar?</h3>
+        <p>A gente entende. Tempo parado é prejuízo. Entra, resolve, você segue. Sem espera, sem enrolação.</p>
+        <a href="tel:+5541999480531" class="action">Ligar Agora ou Encostar Aqui</a>
       </div>
 
       <div class="situation-card reveal">
         <span class="situation-time"><span class="dot-red"></span> Madrugada</span>
-        <h3>"Estou na BR-376 agora"</h3>
-        <p>3h da manhã, tudo fechado. Aqui tá aberto, luz acesa, equipe pronta. Chega que resolve.</p>
-        <a href="tel:+5541999480531" class="action">Ligar Agora</a>
+        <h3>3h da manhã na BR-376?</h3>
+        <p>Tudo fechado, só a gente aberto. Luz acesa, equipe pronta. Liga agora que a gente tá aqui.</p>
+        <a href="tel:+5541999480531" class="action">Ligar Agora ou Encostar Aqui</a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="situation-card reveal">
-        <span class="situation-time"><span class="dot-red"></span> Família</span>
-        <h3>"Preciso resolver rápido"</h3>
-        <p>Família no carro, indo pro litoral, pneu furou. Para aqui no KM 640. Atendimento rápido, você segue a viagem.</p>
-        <a href="tel:+5541999480531" class="action">Ligar Agora</a>
-      </div>
-
-      <div class="situation-card reveal">
-        <span class="situation-time"><span class="dot-red"></span> Frota</span>
-        <h3>"Frota passa por aqui sempre"</h3>
-        <p>Transportadora? Nota fiscal, atendimento prioritário e parceria pra frota que cruza a BR-376.</p>
-        <a href="https://wa.me/5541999480531?text=Oi!%20Tenho%20uma%20frota%20e%20quero%20saber%20sobre%20parceria." class="action" rel="noopener">WhatsApp</a>
-      </div>
+<!-- AVISO IMPORTANTE -->
+<section class="warning-section" id="aviso">
+  <div class="container">
+    <div class="warning-box reveal">
+      <span class="warning-title">⚠ IMPORTANTE</span>
+      <ul class="warning-list">
+        <li><span class="w-ico">⚠</span> <strong>NÃO FAZEMOS SOCORRO NA ESTRADA</strong></li>
+        <li><span class="w-ico">⚠</span> <strong>ATENDIMENTO SOMENTE NO LOCAL</strong></li>
+        <li class="w-highlight"><span class="w-ico-ok">👉</span> <strong>MAS CHEGOU AQUI, RESOLVE NA HORA</strong></li>
+      </ul>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Rodovia+BR-376+KM+640+Miringuava+S%C3%A3o+Jos%C3%A9+dos+Pinhais+PR" class="btn btn-call" target="_blank" rel="noopener" style="margin-top:24px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+        </svg>
+        Ver rota no Google Maps
+      </a>
     </div>
   </div>
 </section>
@@ -2387,18 +2562,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="cta-final-inner">
-    <h2>Tá passando pela BR-376? <span style="text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:6px;">Entra aqui.</span></h2>
-    <p>Chama no WhatsApp avisando que tá vindo, ou liga pra ganhar tempo. A gente já vai deixando tudo pronto.</p>
+    <h2>Quebrou na <span style="text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:6px;">BR-376?</span></h2>
+    <p class="cta-final-choice">
+      <strong>Ou você para aqui…</strong><br>
+      <strong>ou fica parado lá.</strong>
+    </p>
     <div class="cta-final-ctas">
-      <a href="https://wa.me/5541999480531?text=Ol%C3%A1!%20Estou%20indo%20pra%20Borracharia%20Chimarr%C3%A3o%20na%20BR-376%20KM%20640." class="btn btn-whats" rel="noopener">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="tel:+5541999480531" class="btn btn-call">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:+5541999480531" class="btn btn-call btn-cta-big">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Ligar Agora
       </a>
     </div>
+    <p class="cta-final-phone">(41) 99948-0531</p>
   </div>
 </section>
 
