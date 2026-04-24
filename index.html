@@ -265,14 +265,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #fff;
   border-radius: 50%;
   margin-right: 6px;
-  animation: pulsar 2s ease-in-out infinite;
+  animation: pulsar 1.8s ease-in-out infinite;
   vertical-align: middle;
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  will-change: opacity;
 }
 @keyframes pulsar {
-  0%, 100% { opacity: 1; transform: scale(1) translateZ(0); }
-  50% { opacity: 0.25; transform: scale(0.85) translateZ(0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
 }
 
 /* ============================================
@@ -415,13 +414,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 8px; height: 8px;
   background: var(--ambar);
   border-radius: 50%;
-  animation: pulsar-ambar 2s ease-in-out infinite;
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  animation: pulsar-ambar 1.8s ease-in-out infinite;
+  will-change: opacity;
 }
 @keyframes pulsar-ambar {
-  0%, 100% { opacity: 1; transform: scale(1) translateZ(0); }
-  50% { opacity: 0.3; transform: scale(0.85) translateZ(0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
 .hero h1 {
   font-family: var(--fonte-display);
@@ -1073,9 +1071,8 @@ section { padding: 90px 20px; position: relative; }
   width: 6px; height: 6px;
   background: var(--vermelho);
   border-radius: 50%;
-  animation: pulsar 2s ease-in-out infinite;
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  animation: pulsar 1.8s ease-in-out infinite;
+  will-change: opacity;
 }
 .situation-card h3 {
   font-family: var(--fonte-display);
@@ -2052,19 +2049,25 @@ section { padding: 90px 20px; position: relative; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* Dots pulsantes: mantém animação discreta mesmo com reduced-motion
+     (são elementos de 6-8px, não causam desconforto de movimento real) */
   .emergency-bar .pulse,
   .hero-flag .dot,
-  .situation-time .dot-red { animation: none !important; opacity: 1 !important; }
+  .situation-time .dot-red {
+    animation: pulsar-discrete 2.5s ease-in-out infinite !important;
+    animation-iteration-count: infinite !important;
+  }
+  @keyframes pulsar-discrete {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
 }
 
-/* iOS / iPhone optimization - prevent ProMotion 120Hz flicker */
-/* iOS / iPhone - garantir GPU acceleration mas manter mesma duração */
+/* iOS / iPhone - garantir GPU acceleration sem bloquear a animação */
 @supports (-webkit-touch-callout: none) {
   .emergency-bar .pulse,
   .hero-flag .dot,
   .situation-time .dot-red {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
