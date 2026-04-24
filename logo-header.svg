@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" width="420" height="80">
+  <defs>
+    <linearGradient id="hGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="40%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#C8930A"/>
+    </linearGradient>
+    <linearGradient id="hGoldL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFE566"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFB800"/>
+    </linearGradient>
+    <linearGradient id="hChrome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="50%" stop-color="#aaa"/>
+      <stop offset="100%" stop-color="#777"/>
+    </linearGradient>
+    <linearGradient id="hTire" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <linearGradient id="hRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ccc"/>
+      <stop offset="100%" stop-color="#666"/>
+    </linearGradient>
+    <filter id="hSh">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- PNEU/LOGO ICON -->
+  <g transform="translate(40, 40)">
+    <!-- Anel dourado externo -->
+    <circle cx="0" cy="0" r="36" fill="none" stroke="url(#hGold)" stroke-width="3"/>
+    <!-- Fundo -->
+    <circle cx="0" cy="0" r="33" fill="#0a0a0a"/>
+    <!-- Pneu -->
+    <circle cx="0" cy="0" r="28" fill="url(#hTire)" stroke="#2a2a2a" stroke-width="1.5"/>
+    <!-- Sulcos -->
+    <g stroke="#2d2d2d" stroke-width="2" stroke-linecap="round" opacity="0.7">
+      <line x1="-18" y1="-20" x2="-24" y2="-14"/>
+      <line x1="-5" y1="-26" x2="-6" y2="-20"/>
+      <line x1="10" y1="-25" x2="10" y2="-19"/>
+      <line x1="22" y1="-16" x2="26" y2="-12"/>
+      <line x1="26" y1="2" x2="20" y2="1"/>
+      <line x1="20" y1="18" x2="16" y2="14"/>
+      <line x1="3" y1="26" x2="2" y2="20"/>
+      <line x1="-14" y1="22" x2="-12" y2="17"/>
+      <line x1="-26" y1="8" x2="-20" y2="7"/>
+      <line x1="-26" y1="-8" x2="-21" y2="-7"/>
+    </g>
+    <!-- Roda -->
+    <circle cx="0" cy="0" r="15" fill="url(#hRim)" stroke="#888" stroke-width="1"/>
+    <circle cx="0" cy="0" r="13" fill="#444" stroke="#555" stroke-width="1"/>
+    <!-- Furos -->
+    <circle cx="0" cy="-8" r="2.5" fill="#222"/>
+    <circle cx="7" cy="-4" r="2.5" fill="#222"/>
+    <circle cx="7" cy="4" r="2.5" fill="#222"/>
+    <circle cx="0" cy="8" r="2.5" fill="#222"/>
+    <circle cx="-7" cy="4" r="2.5" fill="#222"/>
+    <circle cx="-7" cy="-4" r="2.5" fill="#222"/>
+    <circle cx="0" cy="0" r="4" fill="#333"/>
+    <circle cx="0" cy="0" r="2" fill="#555"/>
+  </g>
+
+  <!-- TEXTO BORRACHARIA (menor, em cima) -->
+  <text x="88" y="28" font-family="Arial Black, Impact, Arial, sans-serif" font-weight="900" font-size="13" fill="url(#hChrome)" letter-spacing="4">BORRACHARIA</text>
+
+  <!-- TEXTO CHIMARRÃO (grande, dourado) -->
+  <text x="88" y="56" font-family="Arial Black, Impact, Arial, sans-serif" font-weight="900" font-size="34" fill="url(#hGoldL)" letter-spacing="1" filter="url(#hSh)">CHIMARRÃO</text>
+
+  <!-- 24H badge -->
+  <g transform="translate(88, 68)">
+    <text font-family="Arial, sans-serif" font-weight="800" font-size="10" fill="url(#hGold)" letter-spacing="1.5">24H • BR-376 KM 640</text>
+  </g>
+
+  <!-- Ferramentas cruzadas mini -->
+  <g transform="translate(390, 40)" opacity="0.8">
+    <circle cx="0" cy="0" r="16" fill="none" stroke="url(#hGold)" stroke-width="1.5"/>
+    <g transform="rotate(-45)" stroke="url(#hChrome)" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-10" x2="0" y2="10"/>
+    </g>
+    <g transform="rotate(45)" stroke="url(#hChrome)" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-10" x2="0" y2="10"/>
+    </g>
+    <circle cx="0" cy="0" r="3" fill="url(#hGold)"/>
+  </g>
+</svg>
