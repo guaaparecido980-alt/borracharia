@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Política de Privacidade | Borracharia Chimarrão 24h BR-376</title>
+<meta name="description" content="Política de Privacidade da Borracharia Chimarrão em conformidade com a LGPD (Lei Geral de Proteção de Dados). Saiba como tratamos seus dados pessoais.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://borrachariachimarrao.com.br/privacidade.html">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --preto: #0a0a0a;
+  --preto-2: #151515;
+  --branco: #f5f5f5;
+  --cinza-texto: #a0a0a0;
+  --cinza-borda: #2a2a2a;
+  --ambar: #FFB800;
+  --ambar-brilho: #ffd24d;
+  --vermelho: #E63946;
+  --fonte-display: 'Archivo Black', Impact, sans-serif;
+  --fonte-texto: 'Inter', sans-serif;
+  --container: 840px;
+  --radius: 4px;
+}
+
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonte-texto);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--ambar); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--ambar-brilho); text-decoration: underline; }
+
+/* HEADER */
+.header {
+  background: rgba(10,10,10,.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cinza-borda);
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+}
+.logo img { height: 44px; width: auto; border-radius: 4px; flex-shrink: 0; }
+.logo-name {
+  font-family: var(--fonte-display);
+  font-size: 20px;
+  color: var(--branco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.logo-sub {
+  font-family: var(--fonte-texto);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ambar);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  display: block;
+  margin-top: 2px;
+}
+.btn-voltar {
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--cinza-borda);
+  border-radius: var(--radius);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.btn-voltar:hover { border-color: var(--ambar); color: var(--ambar); text-decoration: none; }
+
+/* HERO */
+.page-hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+  background: radial-gradient(ellipse at center top, rgba(255,184,0,.06) 0%, transparent 70%);
+  border-bottom: 1px solid var(--cinza-borda);
+}
+.page-hero .eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ambar);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--branco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.page-hero .updated {
+  font-size: 13px;
+  color: var(--cinza-texto);
+}
+
+/* CONTENT */
+main {
+  flex: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+  width: 100%;
+}
+main h2 {
+  font-family: var(--fonte-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  color: var(--ambar);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 40px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--cinza-borda);
+  line-height: 1.2;
+}
+main h2:first-child { margin-top: 0; }
+main h3 {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--branco);
+  margin: 24px 0 10px;
+}
+main p { margin-bottom: 16px; color: #d5d5d5; }
+main ul, main ol { margin: 0 0 16px 20px; color: #d5d5d5; }
+main ul li, main ol li { margin-bottom: 8px; padding-left: 6px; }
+main ul li::marker { color: var(--ambar); }
+main strong { color: var(--branco); font-weight: 700; }
+main .highlight-box {
+  background: rgba(255,184,0,.06);
+  border-left: 3px solid var(--ambar);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+main .contact-box {
+  background: var(--preto-2);
+  border: 1px solid var(--cinza-borda);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 30px 0;
+}
+main .contact-box strong { color: var(--ambar); }
+main .contact-box p { margin-bottom: 8px; }
+
+/* FOOTER */
+.footer {
+  background: #050505;
+  border-top: 1px solid var(--cinza-borda);
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+.footer a { color: var(--ambar); }
+.footer-legal-links { margin: 8px 0; display: block; }
+.footer-legal-links a { margin: 0 8px; }
+
+@media (max-width: 640px) {
+  .logo img { height: 38px; }
+  .logo-name { font-size: 17px; }
+  .btn-voltar { padding: 8px 14px; font-size: 12px; }
+  .page-hero { padding: 40px 20px 30px; }
+  main { padding: 40px 20px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="Borracharia Chimarrão - Voltar ao início">
+      <img src="logo-header.png" alt="Logo Borracharia Chimarrão" loading="eager">
+      <div>
+        <span class="logo-name">Chimarrão</span>
+        <span class="logo-sub">Borracharia 24h</span>
+      </div>
+    </a>
+    <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+  </div>
+</header>
+
+<!-- HERO DA PÁGINA -->
+<section class="page-hero">
+  <div class="eyebrow">Documento legal</div>
+  <h1>Política de Privacidade</h1>
+  <p class="updated">Última atualização: 24 de abril de 2026</p>
+</section>
+
+<main>
+
+<p>Esta Política de Privacidade descreve como a <strong>Borracharia Chimarrão</strong> ("nós", "nosso") coleta, utiliza, armazena e protege os dados pessoais de visitantes e clientes que acessam nosso site <a href="https://borrachariachimarrao.com.br">borrachariachimarrao.com.br</a> ou entram em contato conosco.</p>
+
+<p>Estamos comprometidos com a transparência e com o cumprimento da <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD)</strong> e do Marco Civil da Internet (Lei nº 12.965/2014).</p>
+
+<div class="highlight-box">
+  <p><strong>Resumo direto:</strong> este site só coleta informações técnicas de navegação (cookies) e os dados que você mesmo nos envia pelo WhatsApp ou telefone. Nós não vendemos, não alugamos e não compartilhamos seus dados com terceiros para fins comerciais.</p>
+</div>
+
+<h2>1. Identificação do Controlador</h2>
+<p>O controlador dos dados pessoais coletados através deste site é:</p>
+<div class="contact-box">
+  <p><strong>Borracharia Chimarrão</strong></p>
+  <p>CNPJ: 09.056.519/0001-66</p>
+  <p>Endereço: Rodovia BR-376, KM 640, Miringuava - São José dos Pinhais - PR, CEP 83090-090</p>
+  <p>Telefone/WhatsApp: (41) 99948-0531</p>
+  <p>E-mail: <a href="mailto:borrachariachimarrao@yahoo.com.br">borrachariachimarrao@yahoo.com.br</a></p>
+</div>
+
+<h2>2. Quais dados coletamos</h2>
+
+<h3>2.1. Dados fornecidos voluntariamente por você</h3>
+<p>Quando você entra em contato conosco pelo WhatsApp, telefone ou e-mail, podemos coletar:</p>
+<ul>
+  <li>Nome</li>
+  <li>Número de telefone / WhatsApp</li>
+  <li>E-mail (quando aplicável)</li>
+  <li>Informações do veículo (placa, tipo, modelo) necessárias para orçamento ou emissão de nota fiscal</li>
+  <li>CPF ou CNPJ (apenas quando houver emissão de nota fiscal)</li>
+</ul>
+
+<h3>2.2. Dados coletados automaticamente</h3>
+<p>Ao navegar no site, coletamos automaticamente, por meio de cookies e tecnologias similares:</p>
+<ul>
+  <li>Endereço IP</li>
+  <li>Tipo de navegador e sistema operacional</li>
+  <li>Páginas visitadas, tempo de permanência e caminho percorrido no site</li>
+  <li>Origem do acesso (redes sociais, busca, link direto)</li>
+  <li>Dados aproximados de localização (cidade/região)</li>
+</ul>
+
+<h2>3. Como usamos seus dados</h2>
+<p>Tratamos seus dados pessoais exclusivamente para as seguintes finalidades:</p>
+<ul>
+  <li><strong>Atendimento:</strong> responder às suas dúvidas, solicitações e pedidos de orçamento</li>
+  <li><strong>Prestação de serviços:</strong> executar os serviços contratados e emitir nota fiscal quando aplicável</li>
+  <li><strong>Melhoria do site:</strong> analisar o comportamento de navegação para melhorar a experiência dos visitantes</li>
+  <li><strong>Marketing próprio:</strong> mostrar anúncios relevantes da Borracharia Chimarrão em plataformas como Google e Meta (apenas se você aceitar os cookies)</li>
+  <li><strong>Cumprimento legal:</strong> atender obrigações legais, fiscais e regulatórias</li>
+</ul>
+
+<h2>4. Base legal do tratamento</h2>
+<p>Todos os dados são tratados com base em uma das hipóteses autorizadas pela LGPD:</p>
+<ul>
+  <li><strong>Consentimento</strong> (Art. 7º, I): cookies de marketing e análise</li>
+  <li><strong>Execução de contrato</strong> (Art. 7º, V): quando você solicita um serviço</li>
+  <li><strong>Cumprimento de obrigação legal</strong> (Art. 7º, II): emissão de nota fiscal</li>
+  <li><strong>Legítimo interesse</strong> (Art. 7º, IX): análise de navegação do próprio site para fins de melhoria</li>
+</ul>
+
+<h2>5. Cookies e tecnologias de rastreamento</h2>
+<p>Utilizamos cookies para garantir o funcionamento do site e oferecer uma experiência personalizada. Eles são classificados em:</p>
+
+<h3>5.1. Cookies essenciais</h3>
+<p>Necessários para o funcionamento básico do site. Não podem ser desativados. Exemplo: armazenamento do seu consentimento de cookies.</p>
+
+<h3>5.2. Cookies de análise</h3>
+<p>Ajudam a entender como visitantes interagem com o site (ex: Google Analytics). Coletam dados agregados e anônimos.</p>
+
+<h3>5.3. Cookies de marketing</h3>
+<p>Permitem mostrar anúncios relevantes em outras plataformas (ex: Facebook Pixel, Google Ads). Exigem seu consentimento explícito.</p>
+
+<div class="highlight-box">
+  <p><strong>Seu controle:</strong> você pode recusar cookies não essenciais clicando em "Recusar" no banner de cookies. Também pode gerenciar cookies diretamente nas configurações do seu navegador.</p>
+</div>
+
+<h2>6. Compartilhamento de dados</h2>
+<p>Nós <strong>não vendemos e não compartilhamos seus dados com terceiros para fins comerciais</strong>. Seus dados só podem ser compartilhados em situações específicas:</p>
+<ul>
+  <li><strong>Prestadores de serviço:</strong> ferramentas que nos ajudam a operar o site (hospedagem, WhatsApp, Google Analytics, Google Maps) — todos seguem padrões de proteção de dados</li>
+  <li><strong>Obrigação legal:</strong> quando exigido por autoridades competentes, ordem judicial ou lei aplicável</li>
+  <li><strong>Contabilidade:</strong> dados fiscais para nosso escritório de contabilidade, quando houver emissão de nota fiscal</li>
+</ul>
+
+<h2>7. Armazenamento e segurança</h2>
+<p>Seus dados são armazenados em ambientes seguros, com medidas técnicas e administrativas apropriadas para proteção contra acesso não autorizado, perda acidental ou uso indevido.</p>
+<p>O tempo de armazenamento segue o princípio da necessidade:</p>
+<ul>
+  <li>Dados de contato e atendimento: até 2 anos após o último contato</li>
+  <li>Dados fiscais (notas fiscais): pelo prazo legal de 5 anos</li>
+  <li>Cookies: conforme o tempo de expiração definido de cada cookie (geralmente entre 30 dias e 2 anos)</li>
+</ul>
+
+<h2>8. Seus direitos (LGPD)</h2>
+<p>A LGPD garante a você, titular dos dados, os seguintes direitos:</p>
+<ul>
+  <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e acessá-los</li>
+  <li><strong>Correção:</strong> corrigir dados incompletos, inexatos ou desatualizados</li>
+  <li><strong>Anonimização ou exclusão:</strong> solicitar a exclusão de dados desnecessários ou excessivos</li>
+  <li><strong>Portabilidade:</strong> pedir a transferência dos seus dados para outro fornecedor</li>
+  <li><strong>Eliminação:</strong> solicitar a eliminação dos dados tratados com base em consentimento</li>
+  <li><strong>Informação:</strong> saber com quem compartilhamos seus dados</li>
+  <li><strong>Revogação de consentimento:</strong> cancelar o consentimento a qualquer momento</li>
+  <li><strong>Oposição:</strong> se opor ao tratamento em caso de descumprimento da LGPD</li>
+</ul>
+
+<p>Para exercer qualquer um desses direitos, entre em contato conosco pelos canais informados no item 10.</p>
+
+<h2>9. Menores de idade</h2>
+<p>Este site não é direcionado a menores de 18 anos e não coletamos conscientemente dados de menores. Se identificarmos que dados de um menor foram coletados inadvertidamente, eles serão excluídos.</p>
+
+<h2>10. Canais de contato e encarregado (DPO)</h2>
+<p>Para exercer seus direitos, tirar dúvidas ou fazer reclamações sobre o tratamento de dados, entre em contato:</p>
+<div class="contact-box">
+  <p><strong>E-mail:</strong> <a href="mailto:borrachariachimarrao@yahoo.com.br">borrachariachimarrao@yahoo.com.br</a></p>
+  <p><strong>WhatsApp/Telefone:</strong> <a href="tel:+5541999480531">(41) 99948-0531</a></p>
+  <p><strong>Endereço:</strong> Rodovia BR-376, KM 640 - Miringuava - São José dos Pinhais - PR</p>
+</div>
+
+<p>Você também pode apresentar reclamação à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> pelo site <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">www.gov.br/anpd</a>.</p>
+
+<h2>11. Alterações nesta política</h2>
+<p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise de tempos em tempos. A data da última atualização aparece no topo do documento.</p>
+
+<h2>12. Legislação aplicável</h2>
+<p>Esta Política de Privacidade é regida pela legislação brasileira, em especial pela Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e pelo Marco Civil da Internet (Lei nº 12.965/2014). Fica eleito o foro da Comarca de São José dos Pinhais - PR para dirimir quaisquer questões decorrentes desta política.</p>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="ano"></span> Borracharia Chimarrão — CNPJ 09.056.519/0001-66</p>
+  <span class="footer-legal-links">
+    <a href="index.html">Início</a> ·
+    <a href="privacidade.html">Política de Privacidade</a> ·
+    <a href="termos.html">Termos de Uso</a>
+  </span>
+  <p>BR-376 KM 640 · Miringuava · São José dos Pinhais - PR</p>
+  <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.04);margin-top:14px;">
+    <a href="https://gustavodigital.online" target="_blank" rel="noopener" style="font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.8px;transition:color 0.3s;" onmouseover="this.style.color='#F5A623';this.querySelector('strong').style.color='#F5A623'" onmouseout="this.style.color='rgba(255,255,255,0.3)';this.querySelector('strong').style.color='rgba(255,255,255,0.45)'">
+      Desenvolvido por <strong style="color:rgba(255,255,255,0.45);font-weight:700;transition:color 0.3s">Gustavo Digital</strong> ✦
+    </a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
