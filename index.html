@@ -2274,6 +2274,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   outline-offset: 2px;
 }
 </style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1965TDZ1WT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1965TDZ1WT');
+</script>
 </head>
 <body>
 
@@ -3145,14 +3153,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Tracking de conversão (pronto para GA4/GTM/Pixel)
+// Tracking de conversão GA4
 function trackConversion(type) {
-  if (typeof window.gtag === 'function') window.gtag('event', 'conversion_click', { conversion_type: type });
+  if (typeof window.gtag === 'function') {
+    // Evento principal
+    window.gtag('event', type, {
+      event_category: 'conversao',
+      event_label: 'BR-376 KM 640',
+      value: 1
+    });
+    // Evento de geração de lead (aparece no relatório de conversões do GA4)
+    window.gtag('event', 'generate_lead', {
+      currency: 'BRL',
+      value: 1,
+      lead_type: type
+    });
+  }
   if (typeof window.fbq === 'function') window.fbq('track', 'Contact', { content_category: type });
   document.dispatchEvent(new CustomEvent('conversion', { detail: { type } }));
 }
-document.querySelectorAll('a[href^="https://wa.me"]').forEach(a => a.addEventListener('click', () => trackConversion('whatsapp')));
-document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener('click', () => trackConversion('phone_call')));
+
+// Rastrear cliques em TODOS os links de WhatsApp
+document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+  a.addEventListener('click', function() {
+    trackConversion('clique_whatsapp');
+  });
+});
+
+// Rastrear cliques em TODOS os links de telefone
+document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+  a.addEventListener('click', function() {
+    trackConversion('clique_telefone');
+  });
+});
+
+// Rastrear clique no botão Ver rota Google Maps
+document.querySelectorAll('a[href*="google.com/maps"]').forEach(a => {
+  a.addEventListener('click', function() {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'clique_mapa', { event_category: 'conversao', event_label: 'ver_rota_google_maps' });
+    }
+  });
+});
 
 // Menu hamburger
 const menuBtn = document.getElementById('menuBtn');
